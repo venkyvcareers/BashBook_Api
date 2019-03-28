@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BashBook.DAL.EDM.QuestionRule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { questionId = ViewBag.QuestionId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Question.Text)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Question.Text)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionRuleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestionRuleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionRuleId })
+        </td>
+    </tr>
+}
+
+</table>

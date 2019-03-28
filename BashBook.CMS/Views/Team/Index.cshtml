@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BashBook.DAL.EDM.Team>
+
+<div class="row" style="text-align: center">
+    <div class="col-sm-6">
+
+        <h2>Teams</h2>
+    </div>
+    <div class="col-sm-6">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TeamId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TeamId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TeamId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BashBook.DAL.EDM.Question>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LookUpValue.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LookUpValue1.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LookUpValue2.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LookUpValue.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LookUpValue1.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LookUpValue2.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionId }) |
+            @Html.ActionLink("Rules", "Index","QuestionRule", new { questionId = item.QuestionId }, null) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="E:\ProfileMaker\BashBook\packages\log4net.2.0.8\lib\net45-full\log4net.dll" /&gt;&#xD;
+  &lt;Assembly Path="E:\ProfileMaker\BashBook\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Net.Http.dll" /&gt;&#xD;
+  &lt;Assembly Path="E:\ProfileMaker\BashBook\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:Int64 x:Key="/Default/Environment/SearchAndNavigation/DefaultOccurrencesGroupingIndex/@EntryValue">0</s:Int64></wpf:ResourceDictionary>

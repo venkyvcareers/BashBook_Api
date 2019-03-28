@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BashBook.DAL.EDM.Match>
+
+<div class="row" style="text-align: center">
+    <div class="col-sm-6">
+        <h2>Matches</h2>
+    </div>
+    <div class="col-sm-6">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartsOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Result)
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Home Team
+        </th>
+        <th>
+            Opponent Team
+        </th>
+        @*<th>
+            Tournament Name
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @{
+                DateTime date = new DateTime(1970,1,1,0,0,0,0); //Set default date 1/1/1970
+                date = date.AddSeconds(item.StartsOn); //add seconds
+            }
+            @date.ToLocalTime().ToLongDateString(), <b>@date.ToLocalTime().ToShortTimeString()</b>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LookUpValue.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team1.ShortName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Tournament.Name)
+        </td>*@
+        <td>
+
+            @Html.ActionLink("Questions", "Index", "MatchQuestion", new { matchId = item.MatchId }, new { @class = "btn btn-info" }) |
+
+            @Html.ActionLink("Edit", "Edit", new {id = item.MatchId}, new { @class = "btn btn-primary" }) |
+
+            @Html.ActionLink("Delete", "Delete", new {id = item.MatchId}, new { @class = "btn btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model BashBook.DAL.EDM.PredictionCategory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PredictionCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WinPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WinPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LossPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LossPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BonusTimes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BonusTimes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LookUpValue.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LookUpValue.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PredictionCategoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

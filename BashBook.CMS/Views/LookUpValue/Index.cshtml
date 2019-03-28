@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BashBook.DAL.EDM.LookUpValue>
+
+<div class="row" style="text-align: center">
+    <div class="col-sm-6">
+
+        <h2>Lookup Values</h2>
+    </div>
+    <div class="col-sm-6">
+        @Html.ActionLink("Create New", "Create", new { parentId = ViewBag.ParentId }, new { @class = "btn btn-info" })
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogoUrl)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Index", new { parentId = item.LookupValueId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (item.ParentId != 0)
+                {
+                    <img src="@item.LogoUrl" width="50px" height="50px" />
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.LogoUrl)
+                }
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "LookupValue",new { id = item.LookupValueId })" class="btn btn-primary"><span class="glyphicon glyphicon-edit">Edit</span></a>
+            </td>
+            @*<td>
+                <a href="@Url.Action("Details", "LookupValue",new { id = item.LookupValueId })" class="btn btn-info"><span class="glyphicon glyphicon-info-sign">view</span></a>
+
+            </td>*@
+            <td>
+                <a href="@Url.Action("Delete", "LookupValue",new { id = item.LookupValueId })" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Delete</span></a>
+            </td>
+        </tr>
+    }
+
+</table>

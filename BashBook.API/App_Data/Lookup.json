@@ -1,0 +1,86 @@
+[
+  {
+    "Id": 1,
+    "ParentId": 0,
+    "Name": "Entity Type",
+    "LogoUrl": null
+  },
+  {
+    "Id": 2,
+    "ParentId": 0,
+    "Name": "Content Type",
+    "LogoUrl": null
+  },
+  {
+    "Id": 3,
+    "ParentId": 0,
+    "Name": "Event Type",
+    "LogoUrl": null
+  },
+  {
+    "Id": 29,
+    "ParentId": 1,
+    "Name": "User",
+    "LogoUrl": null
+  },
+  {
+    "Id": 30,
+    "ParentId": 1,
+    "Name": "Event",
+    "LogoUrl": null
+  },
+  {
+    "Id": 31,
+    "ParentId": 1,
+    "Name": "Group",
+    "LogoUrl": null
+  },
+  {
+    "Id": 42,
+    "ParentId": 2,
+    "Name": "Image",
+    "LogoUrl": null
+  },
+  {
+    "Id": 43,
+    "ParentId": 2,
+    "Name": "Audio",
+    "LogoUrl": null
+  },
+  {
+    "Id": 44,
+    "ParentId": 2,
+    "Name": "Video",
+    "LogoUrl": null
+  },
+  {
+    "Id": 45,
+    "ParentId": 2,
+    "Name": "Text",
+    "LogoUrl": null
+  },
+  {
+    "Id": 56,
+    "ParentId": 3,
+    "Name": "Birth Day",
+    "LogoUrl": null
+  },
+  {
+    "Id": 57,
+    "ParentId": 3,
+    "Name": "Anniversary",
+    "LogoUrl": null
+  },
+  {
+    "Id": 58,
+    "ParentId": 3,
+    "Name": "Invitation",
+    "LogoUrl": null
+  },
+  {
+    "Id": 59,
+    "ParentId": 3,
+    "Name": "Party",
+    "LogoUrl": null
+  }
+]

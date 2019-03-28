@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BashBook.DAL.EDM.TeamPlayer>
+
+<div class="row" style="text-align: center">
+    <div class="col-sm-6">
+
+        <h2>Team Players</h2>
+    </div>
+    <div class="col-sm-6">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Player
+        </th>
+        <th>
+            Team
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Player.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TeamPlayerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TeamPlayerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TeamPlayerId })
+        </td>
+    </tr>
+}
+
+</table>

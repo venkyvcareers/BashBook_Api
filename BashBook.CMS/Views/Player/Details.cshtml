@@ -1,0 +1,44 @@
+﻿@model BashBook.DAL.EDM.Player
+
+<div>
+    <h4>Player</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LookUpValue.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LookUpValue.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LookUpValue1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LookUpValue1.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlayerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

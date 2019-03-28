@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BashBook.DAL.EDM.LogInfo>
+
+<div class="row" style="text-align: center">
+    <div class="col-sm-6">
+        <h2>Log Info</h2>
+    </div>
+    @*<div class="col-sm-6">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+    </div>*@
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thread)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Logger)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exception)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StackTrace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Method)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thread)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logger)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exception)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StackTrace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Method)
+        </td>
+    </tr>
+}
+
+</table>
