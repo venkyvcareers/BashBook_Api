@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BashBookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BashBookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Chat">
           <Key>
             <PropertyRef Name="ChatId" />
@@ -410,9 +410,9 @@
           <Property Name="UserContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="ContactId" Type="int" Nullable="false" />
-          <Property Name="ContactStatusId" Type="int" Nullable="false" />
-          <Property Name="RequestedOn" Type="bigint" Nullable="false" />
-          <Property Name="AcceptedOn" Type="bigint" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="bigint" Nullable="false" />
+          <Property Name="LastUpdatedOn" Type="bigint" />
         </EntityType>
         <EntityType Name="UserOccations">
           <Key>
@@ -1369,7 +1369,7 @@
               <PropertyRef Name="LookupValueId" />
             </Principal>
             <Dependent Role="UserContacts">
-              <PropertyRef Name="ContactStatusId" />
+              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1869,8 +1869,7 @@
             <End Role="UserVotes" EntitySet="UserVotes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BashBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2060,8 +2059,8 @@
           <NavigationProperty Name="Questions1" Relationship="Self.FK_Question_LookUpValue4" FromRole="LookUpValue" ToRole="Question" />
           <NavigationProperty Name="Questions2" Relationship="Self.FK_Question_LookUpValue5" FromRole="LookUpValue" ToRole="Question" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_LookUpValue" FromRole="LookUpValue" ToRole="User" />
-          <NavigationProperty Name="UserContacts" Relationship="Self.FK_UserContacts_LookUpValue" FromRole="LookUpValue" ToRole="UserContacts" />
           <NavigationProperty Name="UserOccations" Relationship="Self.FK_UserOccations_LookUpValue" FromRole="LookUpValue" ToRole="UserOccations" />
+          <NavigationProperty Name="UserContacts" Relationship="BashBookModel.FK_UserContacts_LookUpValue" FromRole="LookUpValue" ToRole="UserContact" />
         </EntityType>
         <EntityType Name="Match">
           <Key>
@@ -2429,26 +2428,12 @@
           <NavigationProperty Name="PostShares" Relationship="Self.FK_PostShares_User" FromRole="User" ToRole="PostShares" />
           <NavigationProperty Name="PostStatInfoes" Relationship="Self.FK_PostStatInfo_User" FromRole="User" ToRole="PostStatInfo" />
           <NavigationProperty Name="TournamentUserAnswers" Relationship="Self.FK_TournamentQuestionUserAnswer_User" FromRole="User" ToRole="TournamentUserAnswers" />
-          <NavigationProperty Name="UserContacts" Relationship="Self.FK_UserContacts_User" FromRole="User" ToRole="UserContacts" />
-          <NavigationProperty Name="UserContacts1" Relationship="Self.FK_UserContacts_User1" FromRole="User" ToRole="UserContacts" />
           <NavigationProperty Name="UserOccations" Relationship="Self.FK_UserOccations_User" FromRole="User" ToRole="UserOccations" />
           <NavigationProperty Name="UserOccations1" Relationship="Self.FK_UserOccations_User1" FromRole="User" ToRole="UserOccations" />
           <NavigationProperty Name="UserOccations2" Relationship="Self.FK_UserOccations_User2" FromRole="User" ToRole="UserOccations" />
           <NavigationProperty Name="UserVotes" Relationship="Self.FK_UserVote_User" FromRole="User" ToRole="UserVotes" />
-        </EntityType>
-        <EntityType Name="UserContact">
-          <Key>
-            <PropertyRef Name="UserContactId" />
-          </Key>
-          <Property Name="UserContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="ContactId" Type="Int32" Nullable="false" />
-          <Property Name="ContactStatusId" Type="Int32" Nullable="false" />
-          <Property Name="RequestedOn" Type="Int64" Nullable="false" />
-          <Property Name="AcceptedOn" Type="Int64" />
-          <NavigationProperty Name="LookUpValue" Relationship="Self.FK_UserContacts_LookUpValue" FromRole="UserContacts" ToRole="LookUpValue" />
-          <NavigationProperty Name="User" Relationship="Self.FK_UserContacts_User" FromRole="UserContacts" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="Self.FK_UserContacts_User1" FromRole="UserContacts" ToRole="User" />
+          <NavigationProperty Name="UserContacts" Relationship="BashBookModel.FK_UserContacts_User" FromRole="User" ToRole="UserContact" />
+          <NavigationProperty Name="UserContacts1" Relationship="BashBookModel.FK_UserContacts_User1" FromRole="User" ToRole="UserContact" />
         </EntityType>
         <EntityType Name="UserOccation">
           <Key>
@@ -2972,18 +2957,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserContacts_LookUpValue">
-          <End Role="LookUpValue" Type="Self.LookUpValue" Multiplicity="1" />
-          <End Role="UserContacts" Type="Self.UserContact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LookUpValue">
-              <PropertyRef Name="LookupValueId" />
-            </Principal>
-            <Dependent Role="UserContacts">
-              <PropertyRef Name="ContactStatusId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserOccations_LookUpValue">
           <End Role="LookUpValue" Type="Self.LookUpValue" Multiplicity="1" />
           <End Role="UserOccations" Type="Self.UserOccation" Multiplicity="*" />
@@ -3452,30 +3425,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserContacts_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="UserContacts" Type="Self.UserContact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="UserContacts">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserContacts_User1">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="UserContacts" Type="Self.UserContact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="UserContacts">
-              <PropertyRef Name="ContactId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserOccations_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="UserOccations" Type="Self.UserOccation" Multiplicity="*" />
@@ -3560,7 +3509,6 @@
           <EntitySet Name="TournamentTeams" EntityType="Self.TournamentTeam" />
           <EntitySet Name="TournamentUserAnswers" EntityType="Self.TournamentUserAnswer" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="UserContacts" EntityType="Self.UserContact" />
           <EntitySet Name="UserOccations" EntityType="Self.UserOccation" />
           <EntitySet Name="UserVotes" EntityType="Self.UserVote" />
           <AssociationSet Name="FK_EntityPoll_LookUpValue" Association="Self.FK_EntityPoll_LookUpValue">
@@ -3727,10 +3675,6 @@
             <End Role="LookUpValue" EntitySet="LookUpValues" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserContacts_LookUpValue" Association="Self.FK_UserContacts_LookUpValue">
-            <End Role="LookUpValue" EntitySet="LookUpValues" />
-            <End Role="UserContacts" EntitySet="UserContacts" />
-          </AssociationSet>
           <AssociationSet Name="FK_UserOccations_LookUpValue" Association="Self.FK_UserOccations_LookUpValue">
             <End Role="LookUpValue" EntitySet="LookUpValues" />
             <End Role="UserOccations" EntitySet="UserOccations" />
@@ -3887,14 +3831,6 @@
             <End Role="User" EntitySet="Users" />
             <End Role="TournamentUserAnswers" EntitySet="TournamentUserAnswers" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserContacts_User" Association="Self.FK_UserContacts_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="UserContacts" EntitySet="UserContacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserContacts_User1" Association="Self.FK_UserContacts_User1">
-            <End Role="User" EntitySet="Users" />
-            <End Role="UserContacts" EntitySet="UserContacts" />
-          </AssociationSet>
           <AssociationSet Name="FK_UserOccations_User" Association="Self.FK_UserOccations_User">
             <End Role="User" EntitySet="Users" />
             <End Role="UserOccations" EntitySet="UserOccations" />
@@ -3911,7 +3847,70 @@
             <End Role="User" EntitySet="Users" />
             <End Role="UserVotes" EntitySet="UserVotes" />
           </AssociationSet>
+          <EntitySet Name="UserContacts" EntityType="BashBookModel.UserContact" />
+          <AssociationSet Name="FK_UserContacts_LookUpValue" Association="BashBookModel.FK_UserContacts_LookUpValue">
+            <End Role="LookUpValue" EntitySet="LookUpValues" />
+            <End Role="UserContact" EntitySet="UserContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserContacts_User" Association="BashBookModel.FK_UserContacts_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserContact" EntitySet="UserContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserContacts_User1" Association="BashBookModel.FK_UserContacts_User1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserContact" EntitySet="UserContacts" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="UserContact">
+          <Key>
+            <PropertyRef Name="UserContactId" />
+          </Key>
+          <Property Name="UserContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ContactId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="Int64" Nullable="false" />
+          <Property Name="LastUpdatedOn" Type="Int64" />
+          <NavigationProperty Name="LookUpValue" Relationship="BashBookModel.FK_UserContacts_LookUpValue" FromRole="UserContact" ToRole="LookUpValue" />
+          <NavigationProperty Name="User" Relationship="BashBookModel.FK_UserContacts_User" FromRole="UserContact" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="BashBookModel.FK_UserContacts_User1" FromRole="UserContact" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserContacts_LookUpValue">
+          <End Type="BashBookModel.LookUpValue" Role="LookUpValue" Multiplicity="1" />
+          <End Type="BashBookModel.UserContact" Role="UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LookUpValue">
+              <PropertyRef Name="LookupValueId" />
+            </Principal>
+            <Dependent Role="UserContact">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserContacts_User">
+          <End Type="BashBookModel.User" Role="User" Multiplicity="1" />
+          <End Type="BashBookModel.UserContact" Role="UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserContact">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserContacts_User1">
+          <End Type="BashBookModel.User" Role="User" Multiplicity="1" />
+          <End Type="BashBookModel.UserContact" Role="UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserContact">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4351,18 +4350,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserContacts">
-            <EntityTypeMapping TypeName="BashBookModel.UserContact">
-              <MappingFragment StoreEntitySet="UserContacts">
-                <ScalarProperty Name="UserContactId" ColumnName="UserContactId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
-                <ScalarProperty Name="ContactStatusId" ColumnName="ContactStatusId" />
-                <ScalarProperty Name="RequestedOn" ColumnName="RequestedOn" />
-                <ScalarProperty Name="AcceptedOn" ColumnName="AcceptedOn" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserOccations">
             <EntityTypeMapping TypeName="BashBookModel.UserOccation">
               <MappingFragment StoreEntitySet="UserOccations">
@@ -4385,6 +4372,18 @@
                 <ScalarProperty Name="PollId" ColumnName="PollId" />
                 <ScalarProperty Name="OptionId" ColumnName="OptionId" />
                 <ScalarProperty Name="VotedOn" ColumnName="VotedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserContacts">
+            <EntityTypeMapping TypeName="BashBookModel.UserContact">
+              <MappingFragment StoreEntitySet="UserContacts">
+                <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserContactId" ColumnName="UserContactId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4446,7 +4445,6 @@
         <EntityTypeShape EntityType="BashBookModel.TournamentTeam" Width="1.5" PointX="10.5" PointY="47.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BashBookModel.TournamentUserAnswer" Width="1.5" PointX="10.5" PointY="71.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BashBookModel.User" Width="1.5" PointX="3" PointY="70.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BashBookModel.UserContact" Width="1.5" PointX="5.25" PointY="53" IsExpanded="true" />
         <EntityTypeShape EntityType="BashBookModel.UserOccation" Width="1.5" PointX="8.25" PointY="52.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BashBookModel.UserVote" Width="1.5" PointX="12.5" PointY="54.375" IsExpanded="true" />
         <AssociationConnector Association="BashBookModel.FK_EntityPoll_LookUpValue" ManuallyRouted="false" />
@@ -4490,7 +4488,6 @@
         <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue4" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue5" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_User_LookUpValue" ManuallyRouted="false" />
-        <AssociationConnector Association="BashBookModel.FK_UserContacts_LookUpValue" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_UserOccations_LookUpValue" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_Match_Team" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_Match_Team1" ManuallyRouted="false" />
@@ -4530,12 +4527,14 @@
         <AssociationConnector Association="BashBookModel.FK_TournamentTeam_Tournament" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_TournamentQuestionUserAnswer_TournamentQuestion" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_TournamentQuestionUserAnswer_User" ManuallyRouted="false" />
-        <AssociationConnector Association="BashBookModel.FK_UserContacts_User" ManuallyRouted="false" />
-        <AssociationConnector Association="BashBookModel.FK_UserContacts_User1" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_UserOccations_User" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_UserOccations_User1" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_UserOccations_User2" ManuallyRouted="false" />
         <AssociationConnector Association="BashBookModel.FK_UserVote_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BashBookModel.UserContact" Width="1.5" PointX="5.25" PointY="53" />
+        <AssociationConnector Association="BashBookModel.FK_UserContacts_LookUpValue" />
+        <AssociationConnector Association="BashBookModel.FK_UserContacts_User" />
+        <AssociationConnector Association="BashBookModel.FK_UserContacts_User1" />
       </Diagram>
     </Diagrams>
   </Designer>

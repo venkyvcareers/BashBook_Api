@@ -24,7 +24,7 @@ namespace BashBook.DAL.User
         public List<int> GetContacts(int userId, int statusId)
         {
             var result = (from uc in _db.UserContacts
-                where uc.UserId == userId && uc.ContactStatusId == statusId
+                where uc.UserId == userId && uc.StatusId == statusId
                           select uc.ContactId).ToList();
 
             return result;
@@ -33,7 +33,7 @@ namespace BashBook.DAL.User
         public List<int> GetSuggestedList(int userId)
         {
             var directFriends = (from uc in _db.UserContacts
-                where uc.UserId == userId && uc.ContactStatusId == (int)Lookups.ContactStatuses.Accepted
+                where uc.UserId == userId && uc.StatusId == (int)Lookups.ContactStatuses.Accepted
                 select uc.ContactId).ToList();
 
             var result = directFriends;
@@ -43,7 +43,7 @@ namespace BashBook.DAL.User
         public List<int> GetAcceptedList(int userId)
         {
             var result = (from uc in _db.UserContacts
-                where uc.UserId == userId && uc.ContactStatusId == (int)Lookups.ContactStatuses.Accepted
+                where uc.UserId == userId && uc.StatusId == (int)Lookups.ContactStatuses.Accepted
                 select uc.ContactId).ToList();
 
             return result;
@@ -52,7 +52,7 @@ namespace BashBook.DAL.User
         public List<int> GetRequestedList(int userId)
         {
             var result = (from uc in _db.UserContacts
-                where uc.UserId == userId && uc.ContactStatusId == (int)Lookups.ContactStatuses.Requested
+                where uc.UserId == userId && uc.StatusId == (int)Lookups.ContactStatuses.Requested
                 select uc.ContactId).ToList();
 
             return result;
@@ -64,8 +64,8 @@ namespace BashBook.DAL.User
             {
                 UserId = model.UserId,
                 ContactId = model.ContactId,
-                ContactStatusId = model.ContactStatusId,
-                RequestedOn = UnixTimeBaseClass.UnixTimeNow
+                StatusId = model.StatusId,
+                CreatedOn = UnixTimeBaseClass.UnixTimeNow
             };
 
             _db.UserContacts.Add(contact);

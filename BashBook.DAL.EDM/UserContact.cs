@@ -17,9 +17,9 @@ namespace BashBook.DAL.EDM
         public int UserContactId { get; set; }
         public int UserId { get; set; }
         public int ContactId { get; set; }
-        public int ContactStatusId { get; set; }
-        public long RequestedOn { get; set; }
-        public Nullable<long> AcceptedOn { get; set; }
+        public int StatusId { get; set; }
+        public long CreatedOn { get; set; }
+        public Nullable<long> LastUpdatedOn { get; set; }
     
         public virtual LookUpValue LookUpValue { get; set; }
         public virtual User User { get; set; }

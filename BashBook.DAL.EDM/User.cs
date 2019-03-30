@@ -37,12 +37,12 @@ namespace BashBook.DAL.EDM
             this.PostShares = new HashSet<PostShare>();
             this.PostStatInfoes = new HashSet<PostStatInfo>();
             this.TournamentUserAnswers = new HashSet<TournamentUserAnswer>();
-            this.UserContacts = new HashSet<UserContact>();
-            this.UserContacts1 = new HashSet<UserContact>();
             this.UserOccations = new HashSet<UserOccation>();
             this.UserOccations1 = new HashSet<UserOccation>();
             this.UserOccations2 = new HashSet<UserOccation>();
             this.UserVotes = new HashSet<UserVote>();
+            this.UserContacts = new HashSet<UserContact>();
+            this.UserContacts1 = new HashSet<UserContact>();
         }
     
         public int UserId { get; set; }
@@ -104,10 +104,6 @@ namespace BashBook.DAL.EDM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TournamentUserAnswer> TournamentUserAnswers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserContact> UserContacts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserContact> UserContacts1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserOccation> UserOccations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserOccation> UserOccations1 { get; set; }
@@ -115,5 +111,9 @@ namespace BashBook.DAL.EDM
         public virtual ICollection<UserOccation> UserOccations2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserVote> UserVotes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserContact> UserContacts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserContact> UserContacts1 { get; set; }
     }
 }

@@ -40,8 +40,8 @@ namespace BashBook.DAL.EDM
             this.Questions1 = new HashSet<Question>();
             this.Questions2 = new HashSet<Question>();
             this.Users = new HashSet<User>();
-            this.UserContacts = new HashSet<UserContact>();
             this.UserOccations = new HashSet<UserOccation>();
+            this.UserContacts = new HashSet<UserContact>();
         }
     
         public int LookupValueId { get; set; }
@@ -100,8 +100,8 @@ namespace BashBook.DAL.EDM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserContact> UserContacts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserOccation> UserOccations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserContact> UserContacts { get; set; }
     }
 }

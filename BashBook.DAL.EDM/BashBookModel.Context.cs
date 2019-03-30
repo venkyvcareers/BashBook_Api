@@ -60,8 +60,8 @@ namespace BashBook.DAL.EDM
         public virtual DbSet<TournamentTeam> TournamentTeams { get; set; }
         public virtual DbSet<TournamentUserAnswer> TournamentUserAnswers { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserContact> UserContacts { get; set; }
         public virtual DbSet<UserOccation> UserOccations { get; set; }
         public virtual DbSet<UserVote> UserVotes { get; set; }
+        public virtual DbSet<UserContact> UserContacts { get; set; }
     }
 }
