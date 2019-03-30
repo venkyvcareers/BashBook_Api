@@ -15,7 +15,8 @@ namespace BashBook.BAL.Event
     public class EventOperation : BaseBusinessAccessLayer
     {
         readonly EventRepository _event = new EventRepository();
-        readonly EventUserRepository _eventUser =new EventUserRepository();
+        readonly EventUserRepository _eventUser = new EventUserRepository();
+        readonly EventGroupRepository _eventGroup = new EventGroupRepository();
 
         public List<EventModel> GetAllByEntity(int entityTypeId, int entityId)
         {
@@ -46,11 +47,23 @@ namespace BashBook.BAL.Event
                         OccationId = model.OccationId
                     });
 
+                    // Adding Users
                     foreach (var user in model.Users)
                     {
                         _eventUser.Add(new EventUserModel()
                         {
                             UserId = user.UserId,
+                            CreatedBy = model.UserId,
+                            EventId = eventId
+                        });
+                    }
+
+                    // Adding Groups
+                    foreach (var group in model.Groups)
+                    {
+                        _eventGroup.Add(new EventGroupModel()
+                        {
+                            GroupId = group,
                             CreatedBy = model.UserId,
                             EventId = eventId
                         });
@@ -90,6 +103,7 @@ namespace BashBook.BAL.Event
                         OccationId = model.OccationId
                     });
 
+                    #region User management
 
                     var existedUsers = _eventUser.GetAllUsers(model.EventId);
                     var newUsers = model.Users.Select(x => x.UserId).ToList();
@@ -118,13 +132,39 @@ namespace BashBook.BAL.Event
                     {
                         if (!newUsers.Contains(item))
                         {
-                            //_eventUser.DeleteUser(new GroupUserIdModel()
-                            //{
-                            //    UserId = item,
-                            //    GroupId = model.EventId
-                            //});
+                            _eventUser.Delete(model.EventId, item);
                         }
                     }
+
+                    #endregion
+
+                    #region Group Management
+
+                    var existedGroups = _eventGroup.GetGroupIds(model.EventId);
+
+                    foreach (var group in model.Groups)
+                    {
+                        if (!existedGroups.Contains(group))
+                        {
+                            _eventGroup.Add(new EventGroupModel()
+                            {
+                                EventId = model.EventId,
+                                GroupId = group,
+                                CreatedBy = model.UserId,
+                            });
+                        }
+                    }
+
+                    foreach (var item in existedGroups)
+                    {
+                        if (!model.Groups.Contains(item))
+                        {
+                            _eventGroup.Delete(model.EventId, item);
+                        }
+                    }
+
+                    #endregion
+
 
                     scope.Complete();
 

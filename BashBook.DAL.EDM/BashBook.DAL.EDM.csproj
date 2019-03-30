@@ -11,6 +11,7 @@
     <AssemblyName>BashBook.DAL.EDM</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +52,164 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BashBookModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BashBookModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BashBookModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BashBookModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BashBookModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityPoll.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Event.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventGalary.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventGroup.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventUser.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ground.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupUser.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogInfo.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookUpValue.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Match.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchQuestion.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchUserAnswer.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchUserScore.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchUserTeam.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Option.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Poll.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PollCategory.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Post.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostComment.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostLike.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostShare.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostStatInfo.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PredictionCategory.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionRule.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamPlayer.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tournament.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentQuestion.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentTeam.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentUserAnswer.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserContact.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserOccation.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserVote.cs">
+      <DependentUpon>BashBookModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="BashBookModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BashBookModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="BashBookModel.edmx.diagram">
+      <DependentUpon>BashBookModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BashBookModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BashBookModel.edmx</DependentUpon>
+      <LastGenOutput>BashBookModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BashBookModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BashBookModel.edmx</DependentUpon>
+      <LastGenOutput>BashBookModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

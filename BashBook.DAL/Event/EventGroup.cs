@@ -11,18 +11,36 @@ namespace BashBook.DAL.Event
     public class EventGroupRepository : BaseDataAccessLayer
     {
         private readonly BashBookEntities _db = new BashBookEntities();
+        public List<int> GetGroupIds(int eventId)
+        {
+            try
+            {
+                var result = (from e in _db.EventGroups
+                    where e.EventId == eventId
+                    select e.GroupId).ToList();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("EventGroup - GetGroupIds - " + eventId, ex);
+                throw;
+            }
+
+        }
+
         public List<EventGroupModel> GetAll(int eventId)
         {
             try
             {
                 var result = (from e in _db.EventGroups
-                              where e.EventId == eventId
-                              select new EventGroupModel
-                              {
-                                  EventId = e.EventId,
-                                  EventGroupId = e.EventGroupId,
-                                  GroupId = e.GroupId
-                              }).ToList();
+                    where e.EventId == eventId
+                    select new EventGroupModel
+                    {
+                        EventId = e.EventId,
+                        EventGroupId = e.EventGroupId,
+                        GroupId = e.GroupId
+                    }).ToList();
 
                 return result;
             }
@@ -38,10 +56,12 @@ namespace BashBook.DAL.Event
         {
             try
             {
-                var user = new EDM.EventGroup()
+                var user = new EventGroup()
                 {
                     EventId = model.EventId,
                     GroupId = model.GroupId,
+                    CreatedBy = model.CreatedBy,
+                    CreatedOn = UnixTimeBaseClass.UnixTimeNow
                 };
 
                 _db.EventGroups.Add(user);

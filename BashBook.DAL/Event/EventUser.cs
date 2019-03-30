@@ -76,12 +76,11 @@ namespace BashBook.DAL.Event
         {
             try
             {
-                var groupUser = _db.EventUsers.First(x => x.EventId == model.GroupId && x.UserId == model.UserId);
+                var eventUser = _db.EventUsers.First(x => x.EventId == model.GroupId && x.UserId == model.UserId);
 
-                //groupUser.RoleId = model.RoleId;
-                //groupUser.LastUpdatedOn = UnixTimeBaseClass.UnixTimeNow;
+                eventUser.RoleId = model.RoleId;
 
-                _db.Entry(groupUser).State = EntityState.Modified;
+                _db.Entry(eventUser).State = EntityState.Modified;
                 _db.SaveChanges();
 
                 return true;

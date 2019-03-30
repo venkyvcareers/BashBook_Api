@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web.Script.Serialization;
 using BashBook.DAL.EDM;
 using BashBook.Model.Cricket;
-using BashBook.Model.Group;
-using BashBook.Model.Lookup;
-using BashBook.Utility;
 
 namespace BashBook.DAL.Cricket
 {
@@ -30,14 +24,14 @@ namespace BashBook.DAL.Cricket
 
         public bool AddUserQuestionAnswer(MatchQuestionUserAnswerModel model)
         {
-            var answer = new TournamentQuestionUserAnswer()
+            var answer = new TournamentUserAnswer()
             {
                 UserId = model.UserId,
                 TournamentQuestionId = model.MatchQuestionId,
                 Answer = model.Answer,
             };
 
-            _db.TournamentQuestionUserAnswers.Add(answer);
+            _db.TournamentUserAnswers.Add(answer);
             _db.SaveChanges();
 
             return true;

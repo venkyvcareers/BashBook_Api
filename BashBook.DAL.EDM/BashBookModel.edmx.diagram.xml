@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13e0b5d9bd3d4349913b668f79cc1391" Name="Diagram1">
+        <EntityTypeShape EntityType="BashBookModel.Chat" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.EntityPoll" Width="1.5" PointX="3" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Event" Width="1.5" PointX="5.25" PointY="56.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.EventGalary" Width="1.5" PointX="10.5" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.EventGroup" Width="1.5" PointX="7.5" PointY="68.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.EventUser" Width="1.5" PointX="15.5" PointY="57.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Ground" Width="1.5" PointX="3" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Group" Width="1.5" PointX="5.25" PointY="73.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.GroupUser" Width="1.5" PointX="7.5" PointY="57.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.LogInfo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.LookUpValue" Width="1.5" PointX="0.75" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Match" Width="1.5" PointX="7.5" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.MatchQuestion" Width="1.5" PointX="12.75" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.MatchUserAnswer" Width="1.5" PointX="18" PointY="57.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.MatchUserScore" Width="1.5" PointX="10.75" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.MatchUserTeam" Width="1.5" PointX="13.75" PointY="62.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Option" Width="1.5" PointX="8.25" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Player" Width="1.5" PointX="3" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Poll" Width="1.5" PointX="6" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.PollCategory" Width="1.5" PointX="3.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Post" Width="1.5" PointX="10.25" PointY="57.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.PostComment" Width="1.5" PointX="15.5" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.PostLike" Width="1.5" PointX="12.5" PointY="67.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.PostShare" Width="1.5" PointX="16.5" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.PostStatInfo" Width="1.5" PointX="15.5" PointY="67.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.PredictionCategory" Width="1.5" PointX="3" PointY="61.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Question" Width="1.5" PointX="3" PointY="65.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.QuestionRule" Width="1.5" PointX="5.25" PointY="66.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Team" Width="1.5" PointX="5.25" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.TeamPlayer" Width="1.5" PointX="7.5" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.Tournament" Width="1.5" PointX="5.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.TournamentQuestion" Width="1.5" PointX="8.25" PointY="64.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.TournamentTeam" Width="1.5" PointX="10.5" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.TournamentUserAnswer" Width="1.5" PointX="10.5" PointY="71.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.User" Width="1.5" PointX="3" PointY="70.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.UserContact" Width="1.5" PointX="5.25" PointY="53" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.UserOccation" Width="1.5" PointX="8.25" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BashBookModel.UserVote" Width="1.5" PointX="12.5" PointY="54.375" IsExpanded="true" />
+        <AssociationConnector Association="BashBookModel.FK_EntityPoll_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EntityPoll_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Event_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Event_LookUpValue1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Event_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Event_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventGalary_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventGroups_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventUsers_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventGalary_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventGalary_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventGroups_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventGroups_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventUsers_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventUsers_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_EventUsers_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Ground_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Match_Ground" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Group_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Group_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_GroupUsers_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_GroupUsers_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_GroupUsers_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_GroupUsers_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_GroupUsers_User2" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Match_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Player_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Player_LookUpValue1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Post_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Post_LookUpValue1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Post_LookUpValue2" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostComments_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostShares_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PredictionCategory_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue2" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue3" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue4" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Question_LookUpValue5" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_User_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserContacts_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserOccations_LookUpValue" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Match_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Match_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Match_Tournament" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchQuestion_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserAnswer_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserScore_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserTeam_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchQuestion_PredictionCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchQuestion_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserAnswer_MatchQuestion" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserAnswer_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserScore_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserTeam_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_MatchUserTeam_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Option_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserVote_Option" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Team_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TeamPlayer_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Question_PollCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserVote_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_Post_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostComments_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostLikes_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostShares_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostStatInfo_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostComments_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostLikes_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostShares_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_PostStatInfo_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TournamentQuestion_PredictionCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_QuestionRule_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TournamentQuestion_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TeamPlayer_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TournamentTeam_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TournamentQuestion_Tournament" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TournamentTeam_Tournament" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TournamentQuestionUserAnswer_TournamentQuestion" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_TournamentQuestionUserAnswer_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserContacts_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserContacts_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserOccations_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserOccations_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserOccations_User2" ManuallyRouted="false" />
+        <AssociationConnector Association="BashBookModel.FK_UserVote_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

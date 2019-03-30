@@ -80,6 +80,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BashBook.DAL.EDM\BashBook.DAL.EDM.csproj">
+      <Project>{d4b683fd-40e2-4449-bc40-8b3302563638}</Project>
+      <Name>BashBook.DAL.EDM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BashBook.Model\BashBook.Model.csproj">
       <Project>{F20FCF53-DA5E-46D8-B866-789EAEC9095A}</Project>
       <Name>BashBook.Model</Name>
