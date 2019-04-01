@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BashBook.DAL.Event;
 using BashBook.DAL.Group;
 using BashBook.DAL.User;
-using BashBook.Model;
 using BashBook.Model.Global;
 using BashBook.Model.User;
 
@@ -30,6 +24,13 @@ namespace BashBook.BAL.User
         {
             return _user.GetContactPreviewList(userId);
         }
+
+        public List<UserPreviewModel> GetSearchList(string key)
+        {
+            return _user.GetSearchList(key.ToLower());
+        }
+
+        
 
         public UserPreviewModel GetUserInfo(EmailModel model)
         {

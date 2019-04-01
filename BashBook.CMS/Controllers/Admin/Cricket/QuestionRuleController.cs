@@ -6,6 +6,7 @@ using BashBook.DAL.EDM;
 
 namespace BashBook.CMS.Controllers.Admin.Cricket
 {
+    [Authorize(Roles = "SuperAdmin, Admin")]
     public class QuestionRuleController : Controller
     {
         private BashBookEntities db = new BashBookEntities();

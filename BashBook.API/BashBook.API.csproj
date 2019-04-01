@@ -265,6 +265,7 @@
     <Compile Include="Controllers\Post\ChatController.cs" />
     <Compile Include="Controllers\Post\PostLikeController.cs" />
     <Compile Include="Controllers\Post\PostController.cs" />
+    <Compile Include="Controllers\User\UserContactController.cs" />
     <Compile Include="Controllers\User\UserOccationController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

@@ -7,6 +7,7 @@ using BashBook.Model.Lookup;
 
 namespace BashBook.CMS.Controllers.Admin.Cricket
 {
+    [Authorize(Roles = "SuperAdmin, Admin")]
     public class TournamentQuestionController : Controller
     {
         private BashBookEntities db = new BashBookEntities();

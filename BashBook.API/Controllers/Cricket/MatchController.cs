@@ -60,7 +60,7 @@ namespace BashBook.API.Controllers.Cricket
         [Route("GetUserAnswers/{matchId}")]
         public List<CategoryQuestionModel> GetUserAnswers(int matchId)
         {
-            int userId = GetUserId(User.Identity.Name);
+            int userId = GetUserId();
             return _match.GetUserAnswers(matchId, userId);
         }
 
@@ -71,6 +71,7 @@ namespace BashBook.API.Controllers.Cricket
             return _match.GetMatchAnswers(matchId);
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         [Route("UpdateAnswers")]
         public bool UpdateAnswers(UserMatchPredictionModel model)

@@ -79,19 +79,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/BashBook.API.dll">
-      <publishTime>03/30/2019 13:20:15</publishTime>
+      <publishTime>04/02/2019 03:41:44</publishTime>
     </File>
     <File Include="bin/BashBook.BAL.dll">
-      <publishTime>03/30/2019 13:20:08</publishTime>
+      <publishTime>04/02/2019 03:41:36</publishTime>
     </File>
     <File Include="bin/BashBook.DAL.dll">
-      <publishTime>03/30/2019 13:20:07</publishTime>
+      <publishTime>04/02/2019 03:41:36</publishTime>
     </File>
     <File Include="bin/BashBook.DAL.EDM.dll">
-      <publishTime>03/30/2019 13:20:04</publishTime>
+      <publishTime>04/02/2019 03:41:35</publishTime>
     </File>
     <File Include="bin/BashBook.Model.dll">
-      <publishTime>03/30/2019 13:20:03</publishTime>
+      <publishTime>04/02/2019 03:41:33</publishTime>
     </File>
     <File Include="bin/BashBook.Utility.dll">
       <publishTime>03/30/2019 13:20:03</publishTime>
@@ -343,7 +343,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/04/2018 20:08:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/30/2019 13:20:16</publishTime>
+      <publishTime>04/02/2019 03:41:45</publishTime>
     </File>
   </ItemGroup>
 </Project>

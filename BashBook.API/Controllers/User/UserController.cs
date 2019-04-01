@@ -28,6 +28,13 @@ namespace BashBook.API.Controllers.User
             return _user.GetContactPreviewList(userId);
         }
 
+        [HttpGet]
+        [Route("GetSearchList/{key}")]
+        public List<UserPreviewModel> GetSearchList(string key)
+        {
+            return _user.GetSearchList(key);
+        }
+
         [HttpPost]
         [Route("GetUserInfo")]
         public UserPreviewModel GetUserInfo(EmailModel model)

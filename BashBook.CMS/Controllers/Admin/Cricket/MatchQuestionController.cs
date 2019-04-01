@@ -10,6 +10,7 @@ using BashBook.Model.Cricket;
 
 namespace BashBook.CMS.Controllers.Admin.Cricket
 {
+    [Authorize(Roles = "SuperAdmin, Admin")]
     public class MatchQuestionController : Controller
     {
         private BashBookEntities db = new BashBookEntities();

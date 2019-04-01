@@ -16,7 +16,7 @@ namespace BashBook.API.Controllers.Cricket
         [Route("GetPredictedMatchList/{tournamentId}")]
         public List<UserMatchStatusModel> GetPredictedMatchList(int tournamentId)
         {
-            int userId = GetUserId(User.Identity.Name);
+            int userId = GetUserId();
             return _prediction.GetPredictedMatchList(tournamentId, userId);
         }
 

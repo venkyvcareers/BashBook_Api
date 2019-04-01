@@ -60,6 +60,20 @@ namespace BashBook.DAL.User
             return result;
         }
 
+        public List<UserPreviewModel> GetSearchList(string key)
+        {
+            var result = (from u in _db.Users
+                where u.FirstName.ToLower().Contains(key) || u.LastName.ToLower().Contains(key)
+                select new UserPreviewModel()
+                {
+                    UserId = u.UserId,
+                    Image = u.Image,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName
+                }).Take(20).ToList();
+            return result;
+        }
+
         public UserPreviewModel GetUserInfo(EmailModel model)
         {
             var result = (from u in _db.Users

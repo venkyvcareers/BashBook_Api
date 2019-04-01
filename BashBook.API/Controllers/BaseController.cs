@@ -6,9 +6,9 @@ namespace BashBook.API.Controllers
     public class BaseController : ApiController
     {
         readonly UserOperation _user = new UserOperation();
-        public int GetUserId(string email)
+        public int GetUserId()
         {
-            return _user.GetUserId(email);
+            return _user.GetUserId(User.Identity.Name);
         }
     }
 }

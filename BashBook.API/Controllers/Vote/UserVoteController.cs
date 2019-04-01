@@ -15,7 +15,7 @@ namespace BashBook.API.Controllers.Vote
         [Route("Add")]
         public bool Add(UserVoteModel model)
         {
-            int userId = GetUserId(User.Identity.Name);
+            int userId = GetUserId();
             model.UserId = userId;
             return _userVote.Add(model);
         }

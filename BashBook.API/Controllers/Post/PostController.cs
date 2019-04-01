@@ -22,7 +22,7 @@ namespace BashBook.API.Controllers.Post
         [Route("GetAll/{groupId}")]
         public List<PostViewModel> GetAll(int groupId)
         {
-            var userId = GetUserId(User.Identity.Name);
+            var userId = GetUserId();
             return _post.GetAll(groupId, userId);
         }
 
@@ -30,7 +30,7 @@ namespace BashBook.API.Controllers.Post
         [Route("GetAll/{groupId}/{lastPostId}")]
         public List<PostViewModel> GetAll(int groupId, int lastPostId)
         {
-            var userId = GetUserId(User.Identity.Name);
+            var userId = GetUserId();
             return _post.GetAll(groupId, lastPostId, userId);
         }
 

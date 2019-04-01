@@ -43,7 +43,7 @@ namespace BashBook.API.Controllers.Vote
         [Route("GetQuickPollList/{entityTypeId}/{entityId}")]
         public List<QuickPollViewModel> GetQuickPollList(int entityTypeId, int entityId)
         {
-            int userId = GetUserId(User.Identity.Name);
+            int userId = GetUserId();
             return _poll.GetQuickPollList(userId, entityTypeId, entityId);
         }
 
